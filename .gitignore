@@ -9,3 +9,4 @@ tools/releases
 godot-android-share/build/
 godot-android-share/libs/godot-lib.4.0.3.stable.template_release.aar
 .gradle/
+local.properties
