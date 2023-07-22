@@ -1,4 +1,3 @@
-
 package org.godotengine.godot.plugin.GodotAndroidShare;
 
 import android.app.Activity;
@@ -6,25 +5,22 @@ import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 
-import org.godotengine.godot.Dictionary;
+import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
+
 import org.godotengine.godot.Godot;
 import org.godotengine.godot.plugin.GodotPlugin;
-import org.godotengine.godot.plugin.SignalInfo;
 import org.godotengine.godot.plugin.UsedByGodot;
-
-import androidx.annotation.NonNull;
-import androidx.collection.ArraySet;
-import androidx.core.content.FileProvider;
 
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 
+/** @noinspection unused */
 public class GodotAndroidShare extends GodotPlugin {
 
 	private static final String TAG = "godot";
-    private Activity activity;
+    private final Activity activity;
 
     public GodotAndroidShare(Godot godot) {
         super(godot);
@@ -64,6 +60,7 @@ public class GodotAndroidShare extends GodotPlugin {
         activity.startActivity(Intent.createChooser(shareIntent, title));
     }
 
+    /** @noinspection deprecation */
     @NonNull
     @Override
     public List<String> getPluginMethods() {
@@ -75,11 +72,4 @@ public class GodotAndroidShare extends GodotPlugin {
     public String getPluginName() {
         return "GodotAndroidShare";
     }
-
-	@NonNull
-	@Override
-	public Set<SignalInfo> getPluginSignals() {
-		Set<SignalInfo> signals = new ArraySet<>();
-		return signals;
-	}
 }
